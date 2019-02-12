@@ -15,7 +15,7 @@ class Customer_model extends CI_Model
         return [
             ['field' => 'customer_id',
             'label' => 'Customer ID',
-            'rules' => 'required'],
+            'rules' => 'numeric'],
 
             ['field' => 'name',
             'label' => 'Name',
@@ -40,7 +40,7 @@ class Customer_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->customer_id = uniqid();
+        $this->customer_id = $post["id"];
         $this->name = $post["name"];
         $this->address = $post["address"];
         // $this->description = $post["description"];
